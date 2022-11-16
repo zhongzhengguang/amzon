@@ -8,10 +8,11 @@ const MIN_RATING = 1;
 function Product({ id, title, price, description, category, image }) {
   //   rating = 評分
   const [rating] = useState(
-    Math.floor(Math.random() * (MAX_RATING - MIN_RATING + 1)) + MIN_RATING
+    // Math.floor(Math.random() * (MAX_RATING - MIN_RATING + 1)) + MIN_RATING
+    3
   );
   //   有質數
-  const [hasPrime] = useState(Math.random() < 0.5);
+  //   const [hasPrime] = useState(Math.random() < 0.5);
   return (
     <div key={id} className=" flex relative flex-col m-5 bg-white z-30 p-10">
       <p className=" absolute top-2 right-2 text-xs italic text-gray-400">
@@ -35,7 +36,7 @@ function Product({ id, title, price, description, category, image }) {
       <div>
         <Currency quantity={price} currency="TWD" />
       </div>
-      {hasPrime && (
+      {/* {hasPrime && (
         <div className=" flex items-center space-x-2 ">
           <img
             className=" w-12"
@@ -44,7 +45,7 @@ function Product({ id, title, price, description, category, image }) {
           />
           <p className=" text-xs text-gray-500">Free Next-day Delivery</p>
         </div>
-      )}
+      )} */}
       <button className=" mt-auto button">Add to basket</button>
     </div>
   );
