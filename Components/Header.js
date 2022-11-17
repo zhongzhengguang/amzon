@@ -27,7 +27,7 @@ function Header() {
           <SearchIcon className=" h-12 p-4" />
         </div>
         <div className=" text-white flex items-center text-xs space-x-6 mx-6 whitespace-nowrap">
-          <button className=" link cursor-pointer " onClick={signIn}>
+          <button className=" link cursor-pointer ">
             <p>Hello Zhong Zhengguang</p>
             <p className=" font-extrabold md:text-sm">Account & list</p>
           </button>
