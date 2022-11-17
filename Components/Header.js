@@ -5,7 +5,7 @@ import {
   MenuIcon,
   ShoppingCartIcon,
 } from "@heroicons/react/outline";
-import { useSession, signIn, signOut } from "next-auth/react";
+
 function Header() {
   return (
     <header>
@@ -18,7 +18,7 @@ function Header() {
             alt="/"
           />
         </div>
-        <div className="mx-10 bg-yellow-400 hover:bg-yellow-500 hidden sm:flex items-center h-10 rounded-md flex-grow cursor-pointer">
+        {/* <div className="mx-10 bg-yellow-400 hover:bg-yellow-500 hidden sm:flex items-center h-10 rounded-md flex-grow cursor-pointer">
           <input
             className=" p-2 h-full w-6 flex-grow flex-shrink rounded-l-md focus:outline-none px-4"
             //  focus:outline-none 讓input外面藍色框框變不見
@@ -60,7 +60,7 @@ function Header() {
         <p className=" link hidden lg:inline-flex ">Prime</p>
         <p className=" link hidden lg:inline-flex ">Buy Again</p>
         <p className=" link hidden lg:inline-flex ">Shopper Toolkit</p>
-        <p className=" link hidden lg:inline-flex ">Health & Personal Care</p>
+        <p className=" link hidden lg:inline-flex ">Health & Personal Care</p> */}
       </div>
     </header>
   );

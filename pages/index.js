@@ -1,4 +1,3 @@
-import { data } from "autoprefixer";
 import Head from "next/head";
 import { useEffect, useState } from "react";
 import Banner from "../Components/Banner";
