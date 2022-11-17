@@ -29,7 +29,7 @@ export default function Home() {
       </Head>
       <Header />
       <main className=" max-w-screen-2xl mx-auto">
-        <Banner />
+        {/* <Banner /> */}
         {/* <ProductFeed products={data} /> */}
       </main>
     </div>
