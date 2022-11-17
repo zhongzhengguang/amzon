@@ -1,10 +1,24 @@
 import { data } from "autoprefixer";
 import Head from "next/head";
+import { useEffect, useState } from "react";
 import Banner from "../Components/Banner";
 import Header from "../Components/Header";
 import ProductFeed from "../Components/ProductFeed";
+import axios from "axios";
 
-export default function Home({ products }) {
+export default function Home() {
+  const [data, setData] = useState([]);
+  useEffect(() => {
+    axios
+      .get("https://fakestoreapi.com/products")
+      .then((res) => {
+        console.log(res);
+        setData(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
   // console.log(products);
   return (
     <div className=" bg-gray-100 h-full">
@@ -16,18 +30,18 @@ export default function Home({ products }) {
       <Header />
       <main className=" max-w-screen-2xl mx-auto">
         <Banner />
-        <ProductFeed products={products} />
+        <ProductFeed products={data} />
       </main>
     </div>
   );
 }
-export async function getServerSideProps() {
-  const products = await fetch("https://fakestoreapi.com/products").then(
-    (res) => res.json()
-  );
-  return {
-    props: {
-      products,
-    },
-  };
-}
+// export async function getServerSideProps(context) {
+//   const products = await fetch(" https://fakestoreapi.com/products").then(
+//     (res) => res.json()
+//   );
+//   return {
+//     props: {
+//       products,
+//     },
+//   };
+// }
