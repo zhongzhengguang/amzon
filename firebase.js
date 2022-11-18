@@ -1,11 +1,13 @@
 import firebase from "firebase";
-
+import { initializeApp } from "firebase/app";
 const firebaseConfig = {
-  apiKey: "AIzaSyCqE_mbSe-Rk3Qp0ULkliDbJS9KvmbZz3Q",
-  authDomain: "amson-1655d.firebaseapp.com",
-  projectId: "amson-1655d",
-  storageBucket: "amson-1655d.appspot.com",
-  messagingSenderId: "355992275516",
-  appId: "1:355992275516:web:09aa8b02f3db5cd7ca9139",
-  measurementId: "G-75JN05L4PM",
+  apiKey: "AIzaSyB0h0CT-O6ndcFT4le5iNHTEodH_bhYwvQ",
+  authDomain: "amson-2.firebaseapp.com",
+  projectId: "amson-2",
+  storageBucket: "amson-2.appspot.com",
+  messagingSenderId: "630763857584",
+  appId: "1:630763857584:web:d7e5e6baf1776609edbd75",
 };
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);

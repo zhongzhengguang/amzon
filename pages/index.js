@@ -11,14 +11,13 @@ export default function Home() {
     axios
       .get("https://fakestoreapi.com/products")
       .then((res) => {
-        console.log(res);
         setData(res.data);
       })
       .catch((err) => {
         console.log(err);
       });
   }, []);
-  // console.log(products);
+
   return (
     <div className=" bg-gray-100 h-full">
       <Head>
