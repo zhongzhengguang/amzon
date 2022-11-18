@@ -18,7 +18,6 @@ function checkout() {
             src="https://links.papareact.com/ikj"
             width={1500}
             height={250}
-            objectFit="contain"
             alt="/"
           />
           <div className=" flex flex-col p-5 space-y-10 bg-white">
