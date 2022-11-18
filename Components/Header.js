@@ -13,7 +13,7 @@ function Header() {
   const { data: session } = useSession();
   const router = useRouter();
   const items = useSelector(selectItems);
-  console.log(items);
+
   return (
     <header>
       <div className="flex items-center justify-between bg-gray-900 p-2 flex-grow py-2">
