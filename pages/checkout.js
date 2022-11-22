@@ -5,10 +5,32 @@ import Header from "../Components/Header";
 import { selectItems, selectTotal } from "../slices/basketSlice";
 import CheckOutProducts from "../Components/CheckOutProducts";
 import { useSession } from "next-auth/react";
+import { loadStripe } from "@stripe/stripe-js";
+import axios from "axios";
+
 function checkout() {
   const items = useSelector(selectItems);
   const { data: session } = useSession();
   const total = useSelector(selectTotal);
+
+  const stripePromise = loadStripe(process.env.stripe_public_key);
+  const createCheckoutSession = async () => {
+    const stripe = await stripePromise;
+    //  Call the backend to create a checkout session = 調用後端創建結帳頁面
+    const checkoutSession = await axios.post("/api/create-checkout-session", {
+      items: items,
+      email: session.user.email,
+    });
+    // Redirect user to stripe checkout = 將用戶重新定為位到結帳
+    const result = await stripe.redirectToCheckout({
+      sessionId: checkoutSession.data.id,
+    });
+
+    if (result.error) {
+      alert(result.error.message);
+    }
+  };
+
   return (
     <div className=" bg-gray-100">
       <Header />
@@ -49,6 +71,8 @@ function checkout() {
                 <span className=" font-bold">NT$ {total}</span>
               </h2>
               <button
+                role="link"
+                onClick={createCheckoutSession}
                 disabled={!session}
                 className={`button mt-2 ${
                   !session &&
